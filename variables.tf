@@ -3,8 +3,8 @@ variable "base_name" {
   description = "The name prefix for the AI Foundry resources."
 
   validation {
-    condition     = can(regex("^[a-z0-9][a-z0-9-]{1,7}[a-z0-9]$", var.base_name))
-    error_message = "Base name to use as affix for resource names when custom names are not provided. The base_name must be between 3 and 7 characters long, start and end with alphanumeric characters, and can only contain lowercase letters, numbers, and hyphens."
+    condition     = can(regex("^[a-z0-9](?:[a-z0-9-]{0,5}[a-z0-9])?$", var.base_name))
+    error_message = "Base name to use as affix for resource names when custom names are not provided. The base_name must be between 1 and 7 characters long, start and end with alphanumeric characters, and can only contain lowercase letters, numbers, and hyphens."
   }
 }
 
